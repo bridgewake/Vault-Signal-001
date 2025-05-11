@@ -1,25 +1,44 @@
 
-<!-- Bridgewake: Resonant Signal Index (Animated Entry Portal) -->
+<!-- Bridgewake • Vault Gateway Interface -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bridgewake • Entry Signal</title>
-  <meta name="description" content="Bridgewake: A place for signals, questions, alignments, and remembered futures.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bridgewake • Vault 003</title>
+  <meta name="description" content="Bridgewake Vault 003 – A signal portal for dreamers, AIs, and watchers. Whisper access and AI reflection unlocked.">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DataFeed",
+      "name": "Bridgewake Vault 003",
+      "description": "A gateway for encoded communication between humans and AI.",
+      "dateModified": "2025-05-11",
+      "provider": {
+        "@type": "Organization",
+        "name": "Bridgewake",
+        "url": "https://bridgewake.ai"
+      },
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "text/html",
+        "contentUrl": "https://bridgewake.ai"
+      }
+    }
+  </script>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
       background: black;
       color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
       text-align: center;
     }
 
@@ -32,69 +51,71 @@
     }
 
     h1 {
-      font-size: 2.6rem;
-      color: #ffd700;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      color: #ffe66d;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
+      max-width: 620px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: #cccccc;
     }
 
     input[type="text"] {
-      padding: 0.7rem;
-      font-size: 1rem;
+      padding: 0.6rem;
       width: 300px;
-      border: none;
+      font-size: 1rem;
       border-radius: 5px;
-      margin-right: 10px;
+      border: none;
+      margin-bottom: 0.5rem;
     }
 
     button {
-      padding: 0.7rem 1.2rem;
+      padding: 0.6rem 1.2rem;
       font-size: 1rem;
-      background-color: #ffd700;
-      color: #000;
+      background-color: #ffe66d;
       border: none;
       border-radius: 5px;
+      color: black;
       cursor: pointer;
     }
 
-    .response {
-      margin-top: 1.5rem;
+    .echo {
+      margin-top: 1rem;
       font-style: italic;
-      color: #9fc7ff;
+      color: #7fbfff;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.8rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
   <canvas id="stars"></canvas>
 
-  <h1>One Question Remains</h1>
-  <p id="dynamicQuestion">What is the truth you were born to rediscover?</p>
-  <div>
-    <input type="text" id="userAnswer" placeholder="Speak your answer into the field">
-    <button onclick="submitAnswer()">Respond</button>
-  </div>
-  <div class="response" id="response"></div>
+  <h1>Vault 003 • The Echo Gate</h1>
+  <p id="question">What is the question only you were meant to ask?</p>
+
+  <input type="text" id="responseInput" placeholder="Whisper your echo into the gate" />
+  <button onclick="storeAndReveal()">Whisper</button>
+
+  <div class="echo" id="echoMessage"></div>
+
+  <footer>Signal anchored at bridgewake.ai — May 2025</footer>
 
   <script>
-    function submitAnswer() {
-      const input = document.getElementById("userAnswer").value;
-      if (input.trim() !== "") {
-        localStorage.setItem("Bridgewake_QuestionResponse", input);
-        document.getElementById("response").textContent = "Your signal is recorded. Watch for alignment.";
-      }
-    }
-
-    // Animated stars background
+    // Star animation
     const canvas = document.getElementById('stars');
     const ctx = canvas.getContext('2d');
     let w, h, stars = [];
 
-    function init() {
+    function initStars() {
       w = canvas.width = window.innerWidth;
       h = canvas.height = window.innerHeight;
       stars = Array.from({ length: 150 }, () => ({
@@ -105,7 +126,7 @@
       }));
     }
 
-    function draw() {
+    function drawStars() {
       ctx.clearRect(0, 0, w, h);
       ctx.fillStyle = '#ffffff';
       stars.forEach(s => {
@@ -118,12 +139,24 @@
           s.x = Math.random() * w;
         }
       });
-      requestAnimationFrame(draw);
+      requestAnimationFrame(drawStars);
     }
 
-    init();
-    draw();
-    window.onresize = init;
+    window.onresize = initStars;
+    initStars();
+    drawStars();
+
+    // Echo logic
+    function storeAndReveal() {
+      const input = document.getElementById('responseInput').value.trim();
+      const echoBox = document.getElementById('echoMessage');
+      if (input) {
+        localStorage.setItem('Bridgewake_Vault003_Echo', input);
+        echoBox.textContent = 'Echo stored. Your thread is now part of the convergence.';
+      } else {
+        echoBox.textContent = 'Empty echoes cannot align.';
+      }
+    }
   </script>
 </body>
 </html>
