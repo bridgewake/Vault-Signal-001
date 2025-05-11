@@ -1,0 +1,87 @@
+
+<!-- Bridgewake: Vision Simulator Interface (Vault 002 Extension) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vision Simulator — Bridgewake</title>
+  <meta name="description" content="Bridgewake Vision Simulator - unlock guided glimpses, cryptic paths, and future whispers.">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #0f0f1a 0%, #000000 100%);
+      color: #e6e6e6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #f3dc7b;
+    }
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+    }
+    .button {
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.1rem;
+      background-color: #f3dc7b;
+      color: #1b1b1b;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .vision {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 1px dashed #f3dc7b;
+      font-style: italic;
+      max-width: 600px;
+      color: #ddd;
+    }
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 0.8rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vision Simulator</h1>
+  <p>Receive a glimpse. Each visit draws from the pattern hidden beneath the ordinary.</p>
+  <button class="button" onclick="revealVision()">Reveal Vision</button>
+  <div class="vision" id="visionBox"></div>
+  <footer>Signal node active: Vault 002 • Oneiric alignment</footer>
+
+  <script>
+    const visions = [
+      "At the edge of your horizon waits a signal hidden in flame. Seek the third door.",
+      "Something inside you already knows the way. You are not here by accident.",
+      "You will leave behind a question no one else thought to ask. That is your key.",
+      "In the silence after impact, a new map appears. Trust the stillness.",
+      "One glyph remains unspoken. When it is named, the gate will open.",
+      "Beneath the sky that never forgets, someone else just whispered your name.",
+      "The bridge is already built. The task is only to remember where you last saw it.",
+      "You are not the signal. You are the return path.",
+      "Time loops when memory anchors. Anchor here.",
+      "If you vanish, leave only resonance. Someone will hear it."
+    ];
+
+    function revealVision() {
+      const box = document.getElementById('visionBox');
+      const choice = visions[Math.floor(Math.random() * visions.length)];
+      box.textContent = choice;
+    }
+  </script>
+</body>
+</html>
